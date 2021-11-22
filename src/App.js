@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.css';
+import Post from './Post'; 
 
 function App() {
+  const url = 'https://www.reddit.com/r/crypto.json';
+  const [data, setData] = useState();
+ 
+  const getData = () =>  {
+    const fetchData = async () => {
+      await axios
+        .get(url)
+        .then(response => {
+          setData(response.data.data.children);
+          console.log(response.data.data.children);
+        })
+        .catch(error => {
+
+        })      
+        .finally(() => {
+
+        });
+    };
+    fetchData();
+  }
+
+  useEffect(()=>{
+    getData()
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <h1> Ask Reddit</h1>
+
+          <div> 
+                   {data && data.map( (post, index) => { 
+                     return(
+                      <Post key={index} post={post.data} />
+                     )
+                   })}
+          </div>
     </div>
   );
 }
