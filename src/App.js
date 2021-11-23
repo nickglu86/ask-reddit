@@ -33,13 +33,13 @@ function App() {
     <div className="App">
           <h1> Ask Reddit</h1>
 
-          <div> 
+          <main> 
                    {data && data.map( (post, index) => { 
                      return(
                       <Post key={index} post={post.data} />
                      )
                    })}
-          </div>
+          </main>
     </div>
   );
 }
