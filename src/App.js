@@ -24,7 +24,7 @@ function App() {
     setLoading(false);
 }
   useEffect( () => {
-  fetchPosts();
+    fetchPosts();
   
   }, [url])
 
@@ -42,7 +42,7 @@ function App() {
   const handleClickEvent = () => {
     const form = nameForm.current;
     setUrl(generateReqUrl(form['searchword'].value));
-   fetchPosts();
+    fetchPosts();
  }
   
   return (
