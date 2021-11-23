@@ -9,7 +9,7 @@ import Pagination from './components/Pagination';
 
 function App() {
   const defaultURL = 'https://www.reddit.com/r/asreddit.json';
-  const postsPerPage = 12;
+  const postsPerPage = 6;
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
