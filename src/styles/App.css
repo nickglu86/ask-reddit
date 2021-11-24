@@ -1,0 +1,25 @@
+a {
+	cursor: pointer;
+}
+
+header h1 {
+	background-image: url('../images/reddit-logo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+	padding: 0 60px 0 40px;
+	margin: 0;
+	width: 300px;
+	text-align: right;
+	display: inherit;
+}
+
+.container-fluid {
+	max-width: 1400px;
+	padding: 0;
+}
+
+.form-control {
+	width: 200px;
+	margin-right: 10px;
+}

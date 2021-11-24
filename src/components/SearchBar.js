@@ -7,9 +7,9 @@ const SerachBar = ({search}) => {
         search(form['searchword'].value);
     }
     return ( 
-        <div className="form-group d-flex">
+        <div className="form-group d-flex justify-content-center mb-3 mt-5">
             <form ref={nameForm} >
-               <input  name="searchword" type="text" className="form-control" />
+               <input  name="searchword" type="text" className="form-control" placeholder="Type Subject" />
             </form>  
             <button type="submit" className="btn btn-primary mb-2" onClick={handleSearchClick}>Search</button>
         </div>
