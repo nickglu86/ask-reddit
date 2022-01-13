@@ -27,14 +27,24 @@ const Post = ({post}) => {
                 {author}
             </div>
             <div className="date"> {getDate(timestamp)}</div>
-            <h1 style={ title.length > 30 ? {fontSize : 20 } : {fontSize : 24 } }>
+            <h1 
+                style={ title.length > 30 ? {fontSize : 20 } : {fontSize : 24 } }
+                >
                 {title.length > 80 ? title.slice(0,80) + '...' : title }
-                </h1>
+            </h1>
             <div className="metrics">
-                <div className="ups">{ups}</div>
-                <div className="comments">{comments}</div>
+                <div className="ups">
+                    {ups}
+                </div>
+                <div className="comments">
+                    {comments}
+                </div>
             </div>
-            <a href={url} target="_blank">
+            <a 
+                href={url} 
+                rel="noreferrer"
+                target="_blank"
+                >
                 <button className="btn btn-light">Show on Reddit</button>
             </a> 
         </li>
