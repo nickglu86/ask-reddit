@@ -13,6 +13,7 @@ const Pagination = ({postsPerPage, totalPosts, paginate}) => {
                         <a  
                         className="page-link" 
                         href="#/"
+                        rel="noreferrer"
                         onClick={() => paginate(number)} 
                         >
                             {number}
