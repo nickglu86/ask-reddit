@@ -11,38 +11,41 @@ const defaultURL = 'https://www.reddit.com/r/askreddit.json';
 const postsPerPage = 6;
 
 function App() {
+   
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [url, setUrl] = useState(defaultURL);
+  const [searchWord, setSearchWord] = useState('askreddit');
   
   const fetchPosts = async () =>  {
     setLoading(true);
-    const response = await axios.get(url);
+    const response = await axios.get('https://www.reddit.com/r/'+ searchWord +'.json');
     setPosts(response.data.data.children);
     setLoading(false);
+    setCurrentPage(1)
   }
   const paginate = pageNumber => {
     setCurrentPage(pageNumber);
   } 
-  const generateReqUrl = keyword =>{
-      return 'https://www.reddit.com/r/'+ keyword +'.json';
-  }
-  const handleSearchEvent = searchWord  => {
-    setUrl(generateReqUrl(searchWord));
-    fetchPosts();
-    setCurrentPage(1)
-  }
+  // const generateReqUrl = keyword =>{
+  //     return 'https://www.reddit.com/r/'+ keyword +'.json';
+  // }
+  // const handleSearchEvent = (searchWord) => {
+  //   setUrl(generateReqUrl(searchWord));
+  //   fetchPosts();
+  //   setCurrentPage(1)
+  //   console.log('handleSearchEvent')
+  // }
 
   useEffect(() => {
     fetchPosts();
-  }, [url])
+  }, [searchWord])
 
   return (
     <>
       <Header />
       <main className="container-fluid mb-4">
-            <SerachBar   search={handleSearchEvent}/>
+            <SerachBar   search={setSearchWord}/>
             <Posts 
                 posts={posts} 
                 loading={loading} 

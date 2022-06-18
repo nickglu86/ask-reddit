@@ -3,9 +3,11 @@ import { useRef } from "react";
 const SerachBar = ({search}) => {
     const nameForm = useRef(null);
     
-    const handleSearchClick = () => {
+    const handleSearchClick = (e) => {
+        e.preventDefault();
        const form = nameForm.current;
         search(form['searchword'].value);
+        console.log('search activated')
     }
     return ( 
         <div className="form-group d-flex  mb-3">
