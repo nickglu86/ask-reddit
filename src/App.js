@@ -7,7 +7,6 @@ import Pagination from './components/Pagination';
 import SerachBar from './components/SearchBar';
 import Header from './components/Header';
 
-const defaultURL = 'https://www.reddit.com/r/askreddit.json';
 const postsPerPage = 6;
 
 function App() {
@@ -27,16 +26,7 @@ function App() {
   const paginate = pageNumber => {
     setCurrentPage(pageNumber);
   } 
-  // const generateReqUrl = keyword =>{
-  //     return 'https://www.reddit.com/r/'+ keyword +'.json';
-  // }
-  // const handleSearchEvent = (searchWord) => {
-  //   setUrl(generateReqUrl(searchWord));
-  //   fetchPosts();
-  //   setCurrentPage(1)
-  //   console.log('handleSearchEvent')
-  // }
-
+ 
   useEffect(() => {
     fetchPosts();
   }, [searchWord])

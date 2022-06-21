@@ -5,7 +5,7 @@ const SerachBar = ({search}) => {
     
     const handleSearchClick = (e) => {
         e.preventDefault();
-       const form = nameForm.current;
+        const form = nameForm.current;
         search(form['searchword'].value);
         console.log('search activated')
     }
